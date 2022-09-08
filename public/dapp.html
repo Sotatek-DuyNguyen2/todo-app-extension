@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div-wrapper {
+        margin-top: 20px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #10112c2a">
+    <div class="container pt-5">
+      <button class="btn btn-primary" id="getAccount">Get account</button>
+      <button class="btn btn-primary" id="connectButton">Connect</button>
+      <button class="btn btn-warning" id="disconnectButton">Disconnect</button>
+      <button class="btn btn-primary" id="testConnect">test Connect</button>
+      <div>Account: <span id="getAccountResult"></span></div>
+    </div>
+
+    <div style="display: block">
+      <div class="container pt-5">
+        <div>
+          <div>Network:</div>
+          <select onchange="changeNetwork" name="network" id="networkId">
+            <option value="testnet04">Test net</option>
+            <option value="mainnet01">Main net</option>
+          </select>
+        </div>
+        <div class="div-wrapper">
+          <div>Account name</div>
+          <input id="accountName" />
+        </div>
+        <div class="div-wrapper">
+          <div>Chain Id</div>
+          <input id="chainId" type="number" />
+        </div>
+        <div class="div-wrapper">
+          <div>Amount</div>
+          <input id="amount" type="number" />
+        </div>
+      </div>
+
+      <div class="container pt-5">
+        <button class="btn btn-primary" id="sendKadenaButton">
+          Send kadena
+        </button>
+        <button class="btn btn-primary" id="signKadenaButton">Sign</button>
+      </div>
+    </div>
+
+    <script>
+      const onboardButton = document.getElementById('connectButton');
+      const disconnectButton = document.getElementById('disconnectButton');
+      const getAccountsButton = document.getElementById('getAccount');
+      const getAccountResult = document.getElementById('getAccountResult');
+      const testConnectButton = document.getElementById('testConnect');
+
+      const networkId = document.getElementById('networkId');
+      const accountName = document.getElementById('accountName');
+      const chainId = document.getElementById('chainId');
+
+      const sendKadenaButton = document.getElementById('sendKadenaButton');
+
+      /**
+       * Check kadena installed
+       */
+      const isKadenaInstalled = () => {
+        const { kadena } = window;
+
+        return Boolean(kadena && kadena.isKadena);
+      };
+
+      const initialize = async () => {
+
+        const onClickTestConnect = async () => {
+          console.log('xxx', kadena);
+          const status = await kadena.request({
+            method: 'test_connect'
+          })
+        }
+
+        testConnectButton.onclick = onClickTestConnect;
+       
+      };
+
+      window.addEventListener('load', initialize);
+    </script>
+  </body>
+</html>
