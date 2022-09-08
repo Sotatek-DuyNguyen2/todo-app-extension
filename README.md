@@ -31,6 +31,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### run extension
 - add folder `build` to chrome extension
-- if error with [sha256], copy it and replace in `public/manifest.json`
-- open `dapp.html` and click [Connect]
+- if error with `sha256`, copy it and replace in `public/manifest.json` (field `content_security_policy`)
+- open `public/dapp.html` and click `Connect`
 - enjoy
