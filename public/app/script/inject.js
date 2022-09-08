@@ -27,14 +27,6 @@ class Listener {
   }
 }
 
-/**
- * Kadena instance
- *
- * Methods:
- * on: params(name: String, callback: Function)
- *
- * request: params(options: Object)
- */
 window.astrone = {
   isAstrone: true,
 
