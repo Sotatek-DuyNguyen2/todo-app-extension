@@ -1,8 +1,4 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const Wrapper = styled.div`
-  font-size: 100px;
-`;
-
-const HomePage = () => <Wrapper>Astrone extension</Wrapper>;
+const HomePage = () => <div style={{fontSize: '100px'}}>astrone extension</div>;
 export default HomePage;

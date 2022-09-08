@@ -1,8 +1,4 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const Wrapper = styled.div`
-  font-size: 100px;
-`;
-
-const TestConnect = () => <Wrapper>test connect ne</Wrapper>;
+const TestConnect = () => <div style={{fontSize: '100px'}}>test connect ne</div>;
 export default TestConnect;

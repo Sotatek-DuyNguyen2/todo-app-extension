@@ -39,29 +39,15 @@ window.astrone = {
   isAstrone: true,
 
   on: async (name, callback) => {
-    let listener = new Listener(name, (response) => {
-      if (response.action === 'res_requestAccount' && response.target === 'ast.dapps') {
-        const domain = window.location.hostname || window.window.location.href;
-        if (response.account && response.account.connectedSites && response.account.connectedSites.includes(domain)) {
-          callback(response);
-        } else {
-          callback({});
-        }
-      } else {
-        callback(response);
-      }
-    });
-    return await listener.on(name);
+    let listener = new Listener(name, callback)
+    return await listener.on(name)
   },
 
   request: async (options) => {
-   
-    const { method,  } = options;
-
+    const { method } = options;
     switch (method) {
       case 'test_connect': 
         return testConnect();
-
       default:
         break;
     }
