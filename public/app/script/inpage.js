@@ -40,7 +40,7 @@ window.kadena = {
 
   on: async (name, callback) => {
     let listener = new Listener(name, (response) => {
-      if (response.action === 'res_requestAccount' && response.target === 'kda.dapps') {
+      if (response.action === 'res_requestAccount' && response.target === 'ast.dapps') {
         const domain = window.location.hostname || window.window.location.href;
         if (response.account && response.account.connectedSites && response.account.connectedSites.includes(domain)) {
           callback(response);
@@ -71,7 +71,7 @@ window.kadena = {
 const testConnect = async () => {
   const listener = new Listener('test_connect');
   listener.send({
-    target: 'kda.content',
+    target: 'ast.content',
     action: listener.name,
   });
 }

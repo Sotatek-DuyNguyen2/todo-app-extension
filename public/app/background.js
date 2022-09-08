@@ -10,12 +10,12 @@ chrome.runtime.onInstalled.addListener((details) => {
 });
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
-  if (request.target === 'kda.background') {
+  if (request.target === 'ast.background') {
     if (contentPort) {
       try {
         contentPort.postMessage({
           ...request,
-          target: 'kda.content',
+          target: 'ast.content',
         });
       } catch (error) {
         console.log(error);
@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 });
 
 chrome.runtime.onConnect.addListener(async (port) => {
-  if (port.name !== 'kda.extension') {
+  if (port.name !== 'ast.extension') {
     return;
   }
   contentPort = port;
@@ -60,18 +60,9 @@ const checkConnect = async () => {
 
   chrome.windows.create(options);
 }
-/**
- * Get last window focus info
- *
- * @return {Object}
- */
+
 const getLastFocusedWindow = async () =>
   new Promise((resolve, reject) => {
     chrome.windows.getLastFocused((windowObject) => resolve(windowObject));
   });
 
-/**
- * Show extension notify popup
- *
- * @param {Object} data
- */
