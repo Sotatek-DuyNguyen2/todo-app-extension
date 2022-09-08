@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime';
 
 const scriptInjection = document.createElement('script');
-scriptInjection.src = chrome.extension.getURL('app/script/inpage.js');
+scriptInjection.src = chrome.extension.getURL('app/script/inject.js');
 (document.head || document.documentElement).appendChild(scriptInjection);
 
 scriptInjection.onload = () => {

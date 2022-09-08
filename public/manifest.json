@@ -6,7 +6,7 @@
   "background": {
     "scripts": ["app/background.js"]
   },
-  "web_accessible_resources": ["app/script/inpage.js"],
+  "web_accessible_resources": ["app/script/inject.js"],
   "content_scripts": [
     {
       "matches": [
@@ -22,7 +22,7 @@
   ],
   "browser_action": {
     "default_title": "Open the popup",
-    "default_popup": "index.html#popup",
+    "default_popup": "index.html#/home-page",
     "default_icon": {
       "16": "favicon.png",
       "32": "favicon.png",
