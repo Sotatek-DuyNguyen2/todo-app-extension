@@ -35,8 +35,8 @@ class Listener {
  *
  * request: params(options: Object)
  */
-window.kadena = {
-  isKadena: true,
+window.astrone = {
+  isAstrone: true,
 
   on: async (name, callback) => {
     let listener = new Listener(name, (response) => {

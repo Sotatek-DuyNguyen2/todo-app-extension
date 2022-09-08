@@ -20,18 +20,16 @@
 
     <script>
       const testConnectButton = document.getElementById('testConnect');
+      const isAstrone = () => {
+        const { astrone } = window;
 
-      const isKadenaInstalled = () => {
-        const { kadena } = window;
-
-        return Boolean(kadena && kadena.isKadena);
+        return Boolean(astrone && astrone.isAstrone);
       };
 
       const initialize = async () => {
 
         const onClickTestConnect = async () => {
-          console.log('xxx', kadena);
-          const status = await kadena.request({
+          const status = await astrone.request({
             method: 'test_connect'
           })
         }

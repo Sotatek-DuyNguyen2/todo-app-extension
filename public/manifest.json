@@ -1,6 +1,6 @@
 {
-  "name": "X Wallet",
-  "description": "X Wallet Extension",
+  "name": "Astrone Wallet",
+  "description": "Astrone Wallet Extension",
   "version": "1.0",
   "manifest_version": 2,
   "background": {
